@@ -1,13 +1,12 @@
-package scenes.particles;
+package scenes.glitch;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
 
-public class ParticleVectorFieldSketch extends PApplet {
+public class GlitchVectorFieldSketch extends PApplet {
 
     public PGraphics pg;
-    public PGraphics lineGraphics;
-    public ParticleVectorField field;
+    public GlitchVectorField field;
     public float time;
 
     public void settings() {
@@ -18,17 +17,23 @@ public class ParticleVectorFieldSketch extends PApplet {
     public void setup() {
         time = 0.0f;
         pg = createGraphics(800, 600);
-        lineGraphics = createGraphics(800, 600);
         background(20);
-        frameRate(35);
+        frameRate(25);
         fill(200);
-        field = new ParticleVectorField();
+        field = new GlitchVectorField();
+    }
+
+    public void mouseMoved() {
+
     }
 
     public void draw() {
         time += 0.1f;
-        field.draw(pg, lineGraphics, time);
-        saveFrame("/tmp/video/#######.png");
-        image(lineGraphics, 0, 0);
+        pg.beginDraw();
+        pg.background(0, 0, 0, 255);
+        field.mouseMoved(mouseX, mouseY);
+        field.draw(pg, time);
+        pg.endDraw();
+        image(pg, 0, 0);
     }
 }

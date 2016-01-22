@@ -11,13 +11,13 @@ public class GlitchVectorFieldSketch extends PApplet {
     public float time;
 
     public void settings() {
-        size(800, 600, P3D);
+        size(2000, 2000, P3D);
         //fullScreen(P3D);
     }
 
     public void setup() {
         time = 0.0f;
-        pg = createGraphics(800, 600);
+        pg = createGraphics(2000, 2000);
         background(20);
         frameRate(25);
         fill(200);
@@ -36,5 +36,6 @@ public class GlitchVectorFieldSketch extends PApplet {
         field.draw(pg, time);
         pg.endDraw();
         image(pg, 0, 0);
+        //saveFrame("/tmp/video/######.png");
     }
 }
