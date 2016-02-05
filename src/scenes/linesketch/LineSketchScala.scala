@@ -1,9 +1,9 @@
-package scenes.glitch
+package scenes.linesketch
 
 import concepts._
-import processing.core.{PGraphics, PVector}
+import processing.core.PGraphics
 
-class GlitchVectorField {
+class LineSketchScala {
   val options = VectorFieldOptions(100, 60, 10.0f)
 
  val field = new VectorField(options, FieldInitializers.random)
@@ -33,11 +33,12 @@ class GlitchVectorField {
      sample =>
       val pos = sample.position
       val force = sample.force
-      graphics.noStroke()
-      graphics.fill(mapc(force.x), mapc(force.y), 25*5, mapc(force.x))
+      graphics.stroke(mapc(force.x), mapc(force.y), 25*5, mapc(force.x))
        // without force for normal particle effect, check out different parameter settings,
        // this one is awesome, make a gif and a video.
-      graphics.rect(pos.x - force.x * 10.0f * hsize, pos.y - force.y * 10 * wsize, (10*force.x).toInt,3)
+      val x = pos.x
+      val y = pos.y
+      graphics.line(x,y , x - force.x + force.y * 1.0f * hsize,y - force.y * 1 * wsize)
     }
   }
 }

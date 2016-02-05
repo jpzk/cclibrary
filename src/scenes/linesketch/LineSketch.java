@@ -1,12 +1,12 @@
-package scenes.glitch;
+package scenes.linesketch;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
 
-public class GlitchVectorFieldSketch extends PApplet {
+public class LineSketch extends PApplet {
 
     public PGraphics pg;
-    public GlitchVectorField field;
+    public LineSketchScala field;
     public float time;
 
     public void settings() {
@@ -20,7 +20,7 @@ public class GlitchVectorFieldSketch extends PApplet {
         background(20);
         frameRate(30);
         fill(200);
-        field = new GlitchVectorField();
+        field = new LineSketchScala();
     }
 
     public void mouseMoved() {
