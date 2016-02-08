@@ -15,7 +15,7 @@ class ParticleVectorField {
   }
 
   def draw(graphics: PGraphics, lineGraphics: PGraphics, time: Float): Unit = {
-    field(TimeModifiers.waveModifier(time * 0.1f, 0.1f))
+    field(TimeModifiers.waveModifier(time * 0.1f, 0.1f, 0.01f))
 
     /*
     graphics.beginDraw()

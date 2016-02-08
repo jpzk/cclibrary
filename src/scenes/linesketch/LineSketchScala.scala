@@ -21,10 +21,10 @@ class LineSketchScala {
     modifier = Math.sin(time / 1000).toFloat
     bmodifier = Math.sin(time / 1000).toFloat
 
-    field(TimeModifiers.waveModifier(time * 0.5f, 1.0f))
-    field(TimeModifiers.waveModifier(time * 0.2f, 1.0f))
-    field(TimeModifiers.waveModifier(time * 0.1f, 1.0f))
-    field(TimeModifiers.xModifier(time / 10.0f, 0.5f))
+    field(TimeModifiers.waveModifier(time * 0.5f, 1.0f, 0.1f))
+    field(TimeModifiers.waveModifier(time * 0.2f, 1.0f, 0.1f))
+    field(TimeModifiers.waveModifier(time * 0.1f, 1.0f, 0.1f))
+    field(TimeModifiers.xModifier(time / 10.0f, 0.5f, 0.1f))
 
     //field.drawBoth(graphics)
     def mapc(x: Float) = (x * 100.00).toInt + 155

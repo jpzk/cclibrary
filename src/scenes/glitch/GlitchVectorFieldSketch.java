@@ -10,13 +10,13 @@ public class GlitchVectorFieldSketch extends PApplet {
     public float time;
 
     public void settings() {
-        size(800, 800, P3D);
-        //fullScreen(P3D);
+        size(1366, 768, P3D);
+        fullScreen(P3D);
     }
 
     public void setup() {
         time = 0.0f;
-        pg = createGraphics(800, 800);
+        pg = createGraphics(1366, 768);
         background(20);
         frameRate(30);
         fill(200);
@@ -30,10 +30,11 @@ public class GlitchVectorFieldSketch extends PApplet {
     public void draw() {
         time += 0.1f;
         pg.beginDraw();
-        pg.background(0, 0, 0, 30);
+        pg.background(0, 0, 0, 10);
         field.mouseMoved(mouseX, mouseY);
         field.draw(pg, time);
         pg.endDraw();
         image(pg, 0, 0);
+        saveFrame("/home/nuqu/videos/field-#####.png");
     }
 }

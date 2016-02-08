@@ -20,9 +20,9 @@ class GlitchVectorField {
   }
 
   def draw(graphics: PGraphics, time: Float): Unit = {
-    field(TimeModifiers.waveModifier(time * 0.5f, 1.0f))
-    field(TimeModifiers.waveModifier(time * 0.2f, 1.0f))
-    field(TimeModifiers.waveModifier(time * 0.1f, 1.0f))
+    field(TimeModifiers.waveModifier(time * 0.5f, 1.0f, 0.1f))
+    field(TimeModifiers.waveModifier(time * 0.2f, 1.0f, 0.1f))
+    field(TimeModifiers.waveModifier(time * 0.1f, 1.0f, 0.1f))
     field.drawBoth(graphics)
   }
 }

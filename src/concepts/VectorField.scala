@@ -18,11 +18,11 @@ object Modifiers {
 }
 
 object TimeModifiers {
-  def waveModifier(offset: Float, strength: Float) = {
+  def waveModifier(offset: Float, strength: Float, frequence: Float) = {
     new Function[VectorSample, VectorSample] {
       def apply(s: VectorSample): VectorSample = {
-        val x = Math.sin(0.01f * s.position.x + offset).toFloat
-        val y = Math.cos(0.01f * s.position.y + offset).toFloat
+        val x = Math.sin(frequence * s.position.x + offset).toFloat
+        val y = Math.cos(frequence * s.position.y + offset).toFloat
         val addthis = (new PVector(x, y)).mult(strength)
         s.force.add(addthis).normalize()
         s
@@ -30,11 +30,11 @@ object TimeModifiers {
     }
   }
 
-  def xModifier(offset: Float, strength: Float) = {
+  def xModifier(offset: Float, strength: Float, frequence: Float) = {
     new Function[VectorSample, VectorSample] {
       def apply(s: VectorSample): VectorSample = {
-        val x = Math.sin(0.01f * s.position.x + offset).toFloat
-        val y = Math.sin(0.01f * s.position.x * s.position.y + offset).toFloat
+        val x = Math.sin(frequence * s.position.x + offset).toFloat
+        val y = Math.sin(frequence * s.position.x * s.position.y + offset).toFloat
         val addthis = (new PVector(x, y)).mult(strength)
         s.force.add(addthis).normalize()
         s
